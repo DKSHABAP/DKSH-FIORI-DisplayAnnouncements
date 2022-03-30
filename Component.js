@@ -57,15 +57,18 @@ sap.ui.define([
 					var date = new Date(announcment.ExpDate).toLocaleDateString();
 					return (date === new Date().toLocaleDateString());
 				});
+				oModel1.setProperty("/countDate", resultProductData.length);
+				oModel1.setProperty("/aitems", resultProductData);
 			} else if (selectedKey === "priority") {
 				resultProductData = announcments.filter(function (announcment) {
 					return (1 === announcment.Announce_priority);
 				});
 				oModel1.setProperty("/countPriorty", resultProductData.length);
+				oModel1.setProperty("/aitems", resultProductData);
 			} else {
-				resultProductData = announcments;
+				this.reloadData();
 			}
-			oModel1.setProperty("/aitems", resultProductData);
+
 		},
 		onReload: function () {
 			this._pPopover.then(function (oPopover) {
@@ -77,11 +80,12 @@ sap.ui.define([
 			if (oPopover) {
 				oPopover.setModel(oModel1);
 			}
-			oModel1.loadData("/sap/fiori/announcmentdetailpage/XSJSAPI/ANNOUNCEMENTS_ASSOCIATIONS/services.xsodata/announcement_assosciations");
-			// oModel1.loadData("/XSJSAPI/ANNOUNCEMENTS_ASSOCIATIONS/services.xsodata/announcement_assosciations");
+			// oModel1.loadData("/sap/fiori/announcmentdetailpage/XSJSAPI/ANNOUNCEMENTS_ASSOCIATIONS/services.xsodata/announcement_assosciations");
+			oModel1.loadData("/XSJSAPI/ANNOUNCEMENTS_ASSOCIATIONS/services.xsodata/announcement_assosciations");
 			oModel1.attachRequestCompleted(function onCompleted(oEventData) {
 				if (oEventData.getParameter("success")) {
 					var announcments = oEventData.getSource().getData().d.results;
+					oModel1.setProperty("/countAll", announcments.length);
 					oModel1.setProperty("/aitems", announcments);
 					var resultProductData = announcments.filter(function (user) {
 						var date = new Date(user.ExpDate).toLocaleDateString();

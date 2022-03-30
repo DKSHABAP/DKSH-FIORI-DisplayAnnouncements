@@ -9,7 +9,7 @@
 		<IconTabBar expanded="false" expandable="false" class="sapUiResponsiveContentPadding"
 			select="handleAnnouncmentFilter">
 			<items>
-				<IconTabFilter text="All" key="all" count="{/countDate}"></IconTabFilter>
+				<IconTabFilter text="All" key="all" count="{/countAll}"></IconTabFilter>
 				<IconTabFilter text="By Date" key="date" count="{/countDate}"></IconTabFilter>
 				<IconTabFilter text="By High Priority" key="priority" count="{/countPriorty}"></IconTabFilter>
 			</items>
@@ -19,7 +19,7 @@
 				<layoutData>
 					<FlexItemData maxWidth="600px"/>
 				</layoutData>
-				<NotificationListItem title="{Title}" description="{Description}" showCloseButton="true" class="newlyAddedItem" close=".onItemClose" press="onListItemPress"
+				<NotificationListItem title="{TITLE}" description="{Description}" showCloseButton="true" class="newlyAddedItem" close=".onItemClose" press="onListItemPress"
 					authorName="{CreatedBy}"></NotificationListItem>
 			</NotificationList>
 		</VBox>
