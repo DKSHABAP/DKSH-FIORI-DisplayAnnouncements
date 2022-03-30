@@ -87,7 +87,7 @@ sap.ui.define([
 						var date = new Date(user.ExpDate).toLocaleDateString();
 						return (date === new Date().toLocaleDateString());
 					});
-					oModel1.setProperty("/countDate", announcments.length);
+					oModel1.setProperty("/countDate", resultProductData.length);
 					var resultProductData1 = announcments.filter(function (user) {
 						return (1 === user.Announce_priority);
 					});
