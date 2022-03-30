@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover id="myPopover" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" placement="Bottom" initialFocus="email">
+		<beginButton>
+			<Title text="Announcments"></Title>
+		</beginButton>
+		<endButton>
+			<Button text="Refresh" press="onReload"></Button>
+		</endButton>
+		<IconTabBar expanded="false" expandable="false" class="sapUiResponsiveContentPadding"
+			select="handleAnnouncmentFilter">
+			<items>
+				<IconTabFilter text="All" key="all" count="{/countDate}"></IconTabFilter>
+				<IconTabFilter text="By Date" key="date" count="{/countDate}"></IconTabFilter>
+				<IconTabFilter text="By High Priority" key="priority" count="{/countPriorty}"></IconTabFilter>
+			</items>
+		</IconTabBar>
+		<VBox class="sapUiSmallMargin">
+			<NotificationList items="{/aitems}" showNoData="No Announcments" growing="true" growingThreshold="5">
+				<layoutData>
+					<FlexItemData maxWidth="600px"/>
+				</layoutData>
+				<NotificationListItem title="{Title}" description="{Description}" showCloseButton="true" class="newlyAddedItem" close=".onItemClose" press="onListItemPress"
+					authorName="{CreatedBy}"></NotificationListItem>
+			</NotificationList>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

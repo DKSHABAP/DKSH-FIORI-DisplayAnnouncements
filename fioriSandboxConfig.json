@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"DisplayAnnouncments": {
+			"component": "com.dksh.announcments",
+			"url": "../../../../../"
+		}
+	}
+}

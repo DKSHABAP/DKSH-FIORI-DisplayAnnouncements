@@ -1,0 +1,15 @@
+/* Enter your custom styles here */
+/*.sapDeepu .sapUshellShellHeadItmCntnt {*/
+/*    background-color: red !important;*/
+/*}*/
+.sapUshellShellHeadItm.sapCustomBtn{
+	/*background-color: red !important;*/
+	color: red !important;
+	   
+}
+ .sapCustomBtn .sapUshellShellHeadItmCntnt{
+ 	 font-size: 1.5rem !important;
+ }
+.newlyAddedItem.sapMNLI{
+	    background: darkgray !important;
+}
